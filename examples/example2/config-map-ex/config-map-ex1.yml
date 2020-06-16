@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-settings
+  labels:
+   app: app-settings
+data:             #Config map data
+  owner: srini
+  age: '29'
+  owner.married: 'true'
+  owner.thought.level: noGoodRotten

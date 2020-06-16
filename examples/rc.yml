@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hello-rc
+spec: 
+  replicas: 5
+  selector:
+   app: hello-world
+  #  the upper part are part of RC configuration 
+  # below part from template is about the pod description
+  template: 
+    metadata:
+      labels:
+        app: hello-world
+        zone: prod
+        version: v1
+    spec:
+      imagePullSecrets: 
+        - name: boeingregistry
+      containers:
+        - name: hello-pod
+          image: sres.web.boeing.com:5000/nigelpoulton/pluralsight-docker-ci:latest
+          ports:
+          - containerPort: 8080

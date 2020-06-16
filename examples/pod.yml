@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: hello-pod
+  labels:
+    zone: prod
+    version: v1
+spec:
+  imagePullSecrets: 
+   - name: boeingregistry
+  containers:
+   - name: hello-pod
+     image: sres.web.boeing.com:5000/nigelpoulton/pluralsight-docker-ci:latest
+     ports:
+     - containerPort: 8080
+  # imagePullPolicy: never

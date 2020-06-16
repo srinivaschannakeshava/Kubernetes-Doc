@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-serv  #name of service can be used as a DNS entry to this by other service
+  labels:
+    app: nginx-serv
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx-pod #apply to resources with label app: nginx
+  ports:
+  - name: http
+    port: 8080  # host port to which it connected
+    targetPort: 80 # container port
+    # nodePort: 31000

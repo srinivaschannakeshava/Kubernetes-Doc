@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:      # metadata related to deployment
+  name: nginx-dep
+  labels:
+    app: nginx-deploy
+spec:
+  replicas: 1 # specify the replication factor
+  minReadySeconds: 10 #minimum time before 
+  selector:    # Select Pod template label
+    matchLabels:
+      app: nginx-pod
+  template:   # Used to create pods
+    metadata:
+      labels:
+        app: nginx-pod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        livenessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+          initialDelaySeconds: 15
+          timeoutSeconds: 2
+          periodSeconds: 5 # check every 5 secs
+          failureThreshold: 1 # how many failures are allowed
+        readinessProbe:
+            httpGet:
+              path: /index.html
+              port: 80
+            initialDelaySeconds: 2
+            periodSeconds: 5  
+        resources:
+          limits:
+            memory: "128Mi" # 128 MB
+            cpu: "200m" # 200 millicpu i.e .2 cpu or 20%of the cpu
+        ports:
+         - containerPort: 80
