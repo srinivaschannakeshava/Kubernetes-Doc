@@ -8,4 +8,4 @@ data:             #Config map data
   owner: srini
   age: '29'
   owner.married: 'true'
-  owner.thought.level: noGoodRotten
+  owner.thought.level: 'under-developed'

@@ -271,7 +271,7 @@ record flag maintains the record
       - `kubectl port-forward podName hostport:containerport`
       - `kubectl expose rc hello-rc --name=hello-svc --target-port=8080 --type=NodePort`
       - ![example-service.yml](/examples/example2/service-ex1.yml)
-    - ## Storage 
+    - ## Storage
       - Volumes - to store data and state for pods and containers
       - Why volumes?
         - Pods live and die so their file system is short lived
@@ -283,8 +283,8 @@ record flag maintains the record
           - Persistent Volumes
           - Persistent Volume Claims
           - StorageClasses
-      -  Volumes
-         -  Similar to docker volume references
+      - Volumes
+        -  Similar to docker volume references
          -  emptyDIr - for storing transient data useful for sharing files between containers running in a pod
          -  hostPath - Pod mounts into the Node's fileSystem
          -  nfs- Network File System
@@ -338,11 +338,11 @@ record flag maintains the record
           - the secrets are stored on tempfs on nodes so that its not permanent
           - More info on secrets and best practice ![here](https://kubernetes.io/docs/concepts/configuration/secret/) 
         - Creating secrets
-            - `kubectl create secret generic my-secret --from-literal=pwd=my-password`
+          - `kubectl create secret generic my-secret --from-literal=pwd=my-password`
             - `kubectl create secret generic my-secret --from-file=ssh-privatekey=~/.ssh/id_rsa`
             - `kubectl create secret tls tls-secret --cert=path/to/tls.cert --key=path/to/tls.key`
 
         - accessing secret
-          - `kubectl get secrets` 
+          - `kubectl get secrets`
           - similar to configMap the secrets can be accessed as env variable/volumes/
           - `kubectl create secret generic db-passwords --from-literal=db-password='password' --from-literal=db-root-password='password'`

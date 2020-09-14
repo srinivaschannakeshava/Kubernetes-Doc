@@ -10,3 +10,4 @@
 - ` kubectl create -f  filename.yml --save-config `
 - ` kubectl describe pod podName `
 - ` kubectl exec nameofpod -it sh `
+  

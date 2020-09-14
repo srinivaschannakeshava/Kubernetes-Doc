@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: node-configmap
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: node-configmap
@@ -18,7 +19,7 @@ spec:
             name: app-settings 
       containers:
       - name: node-configmap
-        image: node-configmap
+        image: node-configmap:1.0
         imagePullPolicy: Never
         resources:
           limits:
@@ -41,3 +42,17 @@ spec:
          - configMapRef:
              name: app-settings
       
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-configmap-svc
+spec:
+  selector:
+    app: node-configmap
+  type: LoadBalancer
+  ports:
+  - port: 8082
+    targetPort: 9000
+

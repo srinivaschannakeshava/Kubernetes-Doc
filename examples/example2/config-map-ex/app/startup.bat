@@ -1,0 +1,1 @@
+docker build -t node-configmap:1.0 .
