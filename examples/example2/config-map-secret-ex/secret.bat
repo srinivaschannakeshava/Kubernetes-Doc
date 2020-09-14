@@ -1,1 +1,1 @@
-kubectl create secret generic test-secret-file --from-file=secret.txt
+kubectl create secret generic test-secret-file --from-file=secret.txt --from-file=secret-2.txt --from-file=secret-3.txt
