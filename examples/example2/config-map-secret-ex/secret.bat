@@ -1,0 +1,1 @@
+kubectl create secret generic test-secret-file --from-file=secret.txt

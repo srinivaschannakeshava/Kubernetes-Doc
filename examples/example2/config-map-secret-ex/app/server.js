@@ -15,6 +15,7 @@ const handler = (request, response) => {
       response.write("<h1>'Hostname' :" + hostname+"</h1><br />");
       response.write("'OWNER' (from env variable): " + process.env.owner + '<br />');
       response.write("'owner.thought.level' (from volume): " + fileData);
+      response.write("'Reveling secret : " + process.env.husband +" is husband of "+process.env.wife  );
       response.end();
     }
   });
