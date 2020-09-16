@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: my-nginx
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: nginx:alpine
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 80

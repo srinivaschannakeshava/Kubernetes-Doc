@@ -18,3 +18,11 @@
 -  `kubectl logs -p [pod-name]` - previous exited pod logs
 -  `kubectl logs -f [pod-name]` - streaming logs
 -  `kubectl get pods --watch` - waits and watch the state
+
+-----deployments--------
+
+- ` kubectl scale deployment [deploymentName] --replicas=5`
+- ` kubectl apply -f deployFile.yml --replicas=5 `
+- ` kubectl rollout status deployment [depName] ` || `kubectl rollout status -f [depFileName] `
+- ` kubectl rollout history deployment [depName] --revision=2 ` || `kubectl rollout history -f [depFileName] --revision=revNo `
+- ` kubectl rollout undo deployment [depName] --to-revision=3` || `kubectl rollout undo -f [depFileName] --to-revision=revisionNo`

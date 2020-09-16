@@ -352,4 +352,18 @@ record flag maintains the record
 
 ## Kubernetes - Deploying your code - Deployment and deployment stratergy
 
-- 
+- one of the main advantage of k8s is zero downtime updates
+- K8s deployment options
+  - Rolling updates
+  - Blue-Green Deployments
+  - Canary Deployments
+  - Rollbacks
+
+### Rolling update deployments
+
+- rollout- this basically replaces old pods one by one. -- optimal zero downtime update
+- recreate - this brings down all old pods and creates new pods-- this is used when you dont wnat partial routing ex:UI the user may see different ui on multiple hits
+- Creating initial deployment keeping rollback in mind ` kubeclt apply -f fileName --record `
+- check rollout status using ` kubectl rollout status deployment [depName] `
+- ` kubectl rollout history deployment [depName] ` 
+- ` kubectl rollout undo deployment [depName] --to-revision=2 `
