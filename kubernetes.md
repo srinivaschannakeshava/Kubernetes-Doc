@@ -270,7 +270,7 @@ record flag maintains the record
         - ![ExternalName Service](ExternalNameService.jpg)
       - `kubectl port-forward podName hostport:containerport`
       - `kubectl expose rc hello-rc --name=hello-svc --target-port=8080 --type=NodePort`
-      - ![example-service.yml](/examples/example2/service-ex1.yml)
+      - [example-service.yml](/examples/example2/service-ex1.yml)
     - ## Storage
       - Volumes - to store data and state for pods and containers
       - Why volumes?
@@ -346,3 +346,10 @@ record flag maintains the record
           - `kubectl get secrets`
           - similar to configMap the secrets can be accessed as env variable/volumes/
           - `kubectl create secret generic db-passwords --from-literal=db-password='password' --from-literal=db-root-password='password'`
+
+> <b>Note:- Enabling k8s dashboard - [here](examples/enable-dashboard/k8s-dashboard.md)</b>
+-----------------------------------------------------------
+
+## Kubernetes - Deploying your code - Deployment and deployment stratergy
+
+- 
