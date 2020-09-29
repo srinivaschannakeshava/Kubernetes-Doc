@@ -1,0 +1,13 @@
+apiVersion: batch/v1beta1 # verion
+kind: CronJob   #kind 
+metadata:
+    name: pie-counter
+spec:
+  concurrencyPolicy: Allow  # Allow multipole pods to run event if their scheduling overlaps 
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+         restartPolicy: OnFailure
+    

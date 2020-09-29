@@ -1,0 +1,19 @@
+apiVersion: batch/v1 # verion
+kind: Job   #kind 
+metadata:
+    name: pie-counter
+spec:
+    completions: 4 # 4 pods must complete successfully
+    parallelism: 2 # 2 pods run parallel at a time
+    template:
+        metadata:
+            name: pie-counter
+        spec:
+            restartPolicy: Never
+            containers:
+                - name: pie-counter
+                  image: alpine
+                  command:
+                      - "sh"
+                      - "-c"
+                      - "echo 'scale=1000; 4*a(1)' ...;"

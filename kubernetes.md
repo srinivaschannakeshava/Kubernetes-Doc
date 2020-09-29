@@ -218,7 +218,7 @@ record flag maintains the record
       - provides rollback facility
       - creates a unique label that is assigned to replicaset and generate pod
       - YAML is similar to ReplicaSet
-    - POD hirerchy in K8s ![Deployment Hierarchy](./deployment.JPG)
+    - POD hirerchy in K8s ![Deployment Hierarchy](img/deployment.JPG)
       - 
       - `kubectl get deployments -l app=myapp` - Get deployments with specific label 
       - `kubectl get deployments --show-labels` - shows deployments along with labels
@@ -252,22 +252,22 @@ record flag maintains the record
       - ClusterIP - default one 
         - Service IP is exposed internally within cluster
         - Only pods within the cluster can talk to a service 
-        - ![CluterIP service](ClusterService.jpg)
+        - ![CluterIP service](img/ClusterService.jpg)
       - NodePort Service-
         - Exposes the service on each Node's IP at a static port
         - Allocates a port from a range(default is 30000-32767)
         - Each Node proxies the allocated port 
-        - ![NodePort Service](NodePort.jpg)
+        - ![NodePort Service](img/NodePort.jpg)
       - LoadBalancer Service
         - Exposes a service externally
         - Useful when combined with a cloud provider's load balancer
         - NodePort and ClusterIP services are created
-        - ![LoadBalancer Service](LoadBalancerService.jpg)
+        - ![LoadBalancer Service](img/LoadBalancerService.jpg)
       - ExternalName Service
         - Service that acts as an alias for an external service
         - Allows a service to act as the proxy for an external service
         - External service details are hidden from cluster
-        - ![ExternalName Service](ExternalNameService.jpg)
+        - ![ExternalName Service](img/ExternalNameService.jpg)
       - `kubectl port-forward podName hostport:containerport`
       - `kubectl expose rc hello-rc --name=hello-svc --target-port=8080 --type=NodePort`
       - [example-service.yml](/examples/example2/service-ex1.yml)
@@ -299,7 +299,7 @@ record flag maintains the record
       - Available to a pod even if it gets rescheduled to a different Node
       - Rely on a storage provider such as NFS , cloud storage, or other options
       - Associated with a pod by using a PVC
-      - ![PV and PVC flow](persitentVolume.jpg)
+      - ![PV and PVC flow](img/persitentVolume.jpg)
       > [You can find more examples here](https://github.com/kubernetes/examples) 
       - StorageClasses
         - A type of storage template that can be used to dynamically provision storage
@@ -347,5 +347,5 @@ record flag maintains the record
           - similar to configMap the secrets can be accessed as env variable/volumes/
           - `kubectl create secret generic db-passwords --from-literal=db-password='password' --from-literal=db-root-password='password'`
 
-> <b>Note:- Enabling k8s dashboard - [here](examples/enable-dashboard/k8s-dashboard.md)</b>
+> <b>Note:- Enabling k8s dashboard - [here](enable-dashboard/k8s-dashboard.md)</b>
 -----------------------------------------------------------

@@ -9,6 +9,7 @@
 - ` kubectl apply -f file.yml ` / ` kubectl create -f filename.yml `
 - ` kubectl create -f  filename.yml --save-config `
 - ` kubectl describe pod podName `
+- ` kubectl describe jobs/<job-name> `
 - ` kubectl exec nameofpod -it sh `
 - ` kubectl create secret generic my-secret --from-literal=pwd=my-password `
 - ` kubectl create secret generic my-ssh-files --from-file=ssh-private-key=path/to/ssh --from-file=ssh-public-key=path/to/ssh`

@@ -21,12 +21,13 @@
   - Stratergy is of checking the viability of deployment
   - run 2 indentical prod env at same time
   - latest version is setup to receive minimal traffic
-  - ![Canary Deployment](./deployments/canary.JPG)
+  - ![Canary Deployment](img/deployments/canary.JPG)
 
 ### Blue-Green Deployment
 - You deploy 2 environment one serving customer with stable version the other one for internal testing.
 - Once the testing is good the traffic from customer is routed to new one.
 - Blue(stable) is called current running deployment and Green(latest) is termed as new version deployment
-- ![Blue-Green Deployment](./deployments/Blue-Green.JPG)
+- ![Blue-Green Deployment](img/deployments/Blue-Green.JPG)
 - Changing from Blue to Green
   - Once a Green deployment is successfully rolled out and tested, change the public service selector to green. -- change the selector in services
+
