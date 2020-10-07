@@ -349,3 +349,13 @@ record flag maintains the record
 
 > <b>Note:- Enabling k8s dashboard - [here](enable-dashboard/k8s-dashboard.md)</b>
 -----------------------------------------------------------
+
+
+## Enable Nginx-Ingress in Docker-Desktop Kubernetes
+
+- steps -
+  - ``` kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.40.2/deploy/static/provider/cloud/deploy.yaml ```
+  - edit the windows hosts file to add new hosts as per your ingress file ex: - frontend.local, backend.local
+   > ``` 127.0.0.1 frontend.local  ```<br>
+   > ``` 127.0.0.1 backend.local ```
+  - ex: [ingress file](./examples/ingress.yml)
