@@ -1,5 +1,7 @@
 # Kubernetes
 
+
+
 ## History
 - Came out of google
 - Written in Go
@@ -359,3 +361,39 @@ record flag maintains the record
    > ``` 127.0.0.1 frontend.local  ```<br>
    > ``` 127.0.0.1 backend.local ```
   - ex: [ingress file](./examples/ingress.yml)
+
+------
+---- config-----
+- ` kubectl config current-context ` - view current context of kubectl
+- ` kubectl config view ` - view kube config file
+
+
+
+>Note: if clusterIP is not set to none you cant communicate between the services using local dns names ex: ldap-0.ldap-cs.k8s-dev.svc.cluster.local
+> ***podDisruptionBudget*** - Here you define no of pods max that can be disrupted
+
+## Controlling pod placements
+- In K8s pod placement can be controlled with labels and taints on nodes and node affinity rules and tolerations in deployment spec.
+- nodeSelector: For a pod to run on a specific node, that node must match all the labels present under the node selector field in a pod. Node selector is a pod specification field that specifies one or more labels. 
+- Node affinity, podaffinity, podAntiAffinity  - to define where pods placement criteria
+  - Node affinity basically attracts pods and antiaffinity repels pods
+- Node taints and pod tolerations
+
+## Network-Policy
+- Ingress and Egress policy 
+- Enabling Network policy in GKE
+  - gcloud container clusters create $my_cluster --num-nodes 3 --enable-ip-alias --zone $my_zone --enable-network-policy
+
+# Volume types in K8s
+- emptyDir - Ephemeral : shares Pod's lifecycle
+- configMap
+- secrets 
+- downwardApi
+
+> A regional persistent disk can be launched manually or dynamically and provisioned by configuring additional fields in a storage class. If a zonar outage occurs, Kubernetes can fail over those workloads 
+> that use the volume to the other zone.
+> Deployment replicas can share an existing persistent volume using **ReadOnlyMany** or **ReadWriteMany** access mode. ReadWriteMany access mode can only be used for storage types that support it, such as NFS systems. The other access mode you learned about **ReadWriteOnce** isn't recommended for deployments, because the replicas need to attach and reattach to persistent volumes dynamically. If a first pod needs to detach itself, the second pod needs to be attached first. However, the second pod cannot attach because the first pod is already attached. This creates a deadlock. So neither pod can make progress. 
+
+### Statefulset requirements
+First, StatefulSets require a service to control their networking. Sometimes you may not want or need load balancing and a single service, IP. In this case, you create a headless service by specifying none for the cluster IP in the service definition as shown here on the left. The StatefulSet defined on the right refers to this service using the service name field. Second, a label selector is required for the service, and this must match the templates labels defined in the template section of the StatefulSet definition. Third, you define the container details including the image container Pod for the service and volume mounts. Most importantly, Volume Claim templates are specified under the template section. Here the volume claim template is named and the spec is the same as a persistent volume claim that is required by the Pods in this StatefulSet.
+
