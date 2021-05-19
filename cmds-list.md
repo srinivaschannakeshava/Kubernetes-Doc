@@ -23,6 +23,8 @@
 - ` kubectl logs -p [pod-name] ` - previous exited pod logs
 - ` kubectl logs -f [pod-name] ` - streaming logs
 - ` kubectl logs [pod-name] -f --timestamps `
+- ` kubectl logs [pod-name] --tail=100 ` - last 100 lines
+- ` kubectl logs [pod-name] --since=3h ` - last 3hrs logs
 - ` kubectl get pods --watch ` - waits and watch the state
 
 -----deployments--------
@@ -57,3 +59,10 @@
 
 --- Network policy ---
 - ` kubectl get networkpolicy `
+
+--- K8s RBAC policy ---
+- ` kubectl api-resources `
+- ` kubectl get podsecuritypolicies.policy `
+- ` kubectl get clusterrole restricted-pods-role `
+- ` kubectl get podsecuritypolicies `
+- ` kubectl get roles `

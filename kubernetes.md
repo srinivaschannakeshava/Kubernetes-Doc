@@ -397,3 +397,6 @@ record flag maintains the record
 ### Statefulset requirements
 First, StatefulSets require a service to control their networking. Sometimes you may not want or need load balancing and a single service, IP. In this case, you create a headless service by specifying none for the cluster IP in the service definition as shown here on the left. The StatefulSet defined on the right refers to this service using the service name field. Second, a label selector is required for the service, and this must match the templates labels defined in the template section of the StatefulSet definition. Third, you define the container details including the image container Pod for the service and volume mounts. Most importantly, Volume Claim templates are specified under the template section. Here the volume claim template is named and the spec is the same as a persistent volume claim that is required by the Pods in this StatefulSet.
 
+
+### Kubernetes RBAC policy 
+- Pod security policy
