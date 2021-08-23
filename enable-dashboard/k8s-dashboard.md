@@ -2,7 +2,7 @@
 
 - Enable k8s dash board using the cmd
 
-  > `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml`
+  > `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml`
 
 - Start k8s dashboard with cmd
 
